@@ -31,13 +31,6 @@
 *.out
 *.app
 
-
-# Imagenes 
-*.dot
-*.png
-*.jpeg
-*.jpg
-
 # RAR - ZIP
 *.rar
 *.zip

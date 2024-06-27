@@ -2,8 +2,15 @@
 #include <fstream>
 #include "json.hpp"
 
+
 using json = nlohmann::json;
 using namespace std;
+
+#include "./cabeceras/arbolBinario.h"
+#include "./cabeceras/listaCircularDoble.h"
+
+arbolBinario aBinario;
+circularDoble cirDoble;
 
 void cAviones(){
     cout<<"Carga de aviones"<<endl;
@@ -26,22 +33,58 @@ void cAviones(){
         string ciudadDestino = item["ciudad_destino"];
         string estado = item["estado"];
 
-        /*if(item["estado"]=="Disponible"){
-            avionesDisponibles.insertar(item["vuelo"],item["numero_de_registro"],item["modelo"],item["fabricante"],item["ano_fabricacion"],item["capacidad"],item["peso_max_despegue"],item["aerolinea"],item["estado"]);
+        if(item["estado"]=="Disponible"){
+            cout<<"Disponibles";
         }else if(item["estado"]=="Mantenimiento"){
-            avionesMantenimiento.insertar(item["vuelo"],item["numero_de_registro"],item["modelo"],item["fabricante"],item["ano_fabricacion"],item["capacidad"],item["peso_max_despegue"],item["aerolinea"],item["estado"]);
+            cirDoble.insert(vuelo,nRegistro,modelo,capacidad,aerolinea,ciudadDestino,estado);
         }else{
             cout<<"El estado no es valido"<<endl;
-        }*/
+        }
 
-       cout<<aerolinea<<endl;
+       //cout<<aerolinea<<endl;
     }
+    cirDoble.remove("N10003");
+    cirDoble.generateDotFile("dot/avionesMantenimiento.dot");
     return;
 }
 
 void cPilotos(){
     cout<<"Carga de pilotos"<<endl;
-    return;
+    ifstream inputFile("./entradas/pilotos.json");
+    if (!inputFile.is_open()) {
+        cerr << "No se pudo abrir el archivo!" << endl;
+        return;
+    }
+
+    json j;
+    inputFile >> j;
+
+    for (const auto& item : j) {
+        string nombre= item["nombre"];
+        string nacionalidad = item["nacionalidad"];
+        string nId = item["numero_de_id"];
+        string vuelo = item["vuelo"];
+        int hVuelo = item["horas_de_vuelo"];
+        string tLicencia = item["tipo_de_licencia"];
+
+        aBinario.insert(nombre,nacionalidad,nId,vuelo,hVuelo,tLicencia);
+
+        cout<<nId<<endl;
+    }
+
+    /*cout<<"Preorder: "<<endl;
+    aBinario.preOrder(aBinario.getRoot());
+    cout<<endl;
+    cout<<endl;
+    cout<<"Inorder: "<<endl;
+    aBinario.inOrder(aBinario.getRoot());
+    cout<<endl;
+    cout<<endl;
+    cout<<"Posorder: "<<endl;
+    aBinario.posOrder(aBinario.getRoot());
+    cout<<endl;*/
+    aBinario.generateDotFile("dot/horasVuelo.dot");
+    return; 
 }
 
 void cRutas(){

@@ -1,0 +1,26 @@
+digraph G {
+  rankdir=LR;
+  label="Lista de aviones en mantenimiento";
+  node [shape=record];
+  node0 [label=" N10006 "];
+  node1 [label=" N10002 "];
+  node2 [label=" N10011 "];
+  node3 [label=" N10015 "];
+  node4 [label=" N10014 "];
+  node5 [label=" N10014 "];
+  node6 [label=" N10004 "];
+  node0 -> node1;
+  node1 -> node0;
+  node1 -> node2;
+  node2 -> node1;
+  node2 -> node3;
+  node3 -> node2;
+  node3 -> node4;
+  node4 -> node3;
+  node4 -> node5;
+  node5 -> node4;
+  node5 -> node6;
+  node6 -> node5;
+  node6 -> node0;
+  node0 -> node6;
+}
