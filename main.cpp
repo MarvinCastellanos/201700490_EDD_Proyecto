@@ -8,9 +8,11 @@ using namespace std;
 
 #include "./cabeceras/arbolBinario.h"
 #include "./cabeceras/listaCircularDoble.h"
+#include "./cabeceras/arbolB.h"
 
 arbolBinario aBinario;
 circularDoble cirDoble;
+BTree arbolB(3);
 
 void cAviones(){
     cout<<"Carga de aviones"<<endl;
@@ -34,7 +36,7 @@ void cAviones(){
         string estado = item["estado"];
 
         if(item["estado"]=="Disponible"){
-            cout<<"Disponibles";
+            arbolB.insert(nRegistro);
         }else if(item["estado"]=="Mantenimiento"){
             cirDoble.insert(vuelo,nRegistro,modelo,capacidad,aerolinea,ciudadDestino,estado);
         }else{
@@ -43,8 +45,9 @@ void cAviones(){
 
        //cout<<aerolinea<<endl;
     }
-    cirDoble.remove("N10003");
-    cirDoble.generateDotFile("dot/avionesMantenimiento.dot");
+    //cirDoble.remove("N10003");
+    //cirDoble.generateDotFile("dot/avionesMantenimiento.dot");
+    arbolB.generateDotFile("dot/avionesDisponibles.dot");
     return;
 }
 
@@ -164,6 +167,12 @@ void menu(){
 int main()
 {
     menu();
+    //bool r= "a"<"b";
+    //cout<<(bool)(1<2);
+    //string a= "A600";
+    //string b= "E500";
+    //cout<<(bool)("D100"<"B100");
+    //cout<<(bool)(b<a);
     return 0;
 }
 
