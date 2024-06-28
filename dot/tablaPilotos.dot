@@ -1,0 +1,9 @@
+digraph G {
+  label="Tabla de pilotos";
+
+subgraph cluster_0{
+label="";0->1->2->3->4->5->6->7->8->9->10->11->12->13->14->15->16->17->18->19->20->21->22->23->24->25->26->27->28->29->30->31->32->33->34->35->36[style=invis];
+}
+
+subgraph cluster_1{label="";L0->L1->L2->L3->L4->L5->L6->L7->L8->L9->L10->L11->L12->L13->L14->L15->L16->L17->L18->L19->L20->L21->L22->L23->L24->L25->L26->L27->L28->L29->L30->L31->L32->L33->L34->L35->L36[style= invis];}
+L0[label="" shape=box];L1[label="" shape=box];L2[label="" shape=box];L3[label="" shape=box];L4[label="" shape=box];L5[label="P80024431 -> P11055091" shape=box];L6[label="" shape=box];L7[label="" shape=box];L8[label="" shape=box];L9[label="P73422350" shape=box];L10[label="" shape=box];L11[label="P16523119" shape=box];L12[label="" shape=box];L13[label="" shape=box];L14[label="P62684401 -> P92353342 -> P82907230 -> P01135588" shape=box];L15[label="P22673291" shape=box];L16[label="P12928056" shape=box];L17[label="P16936234" shape=box];L18[label="" shape=box];L19[label="P74341197 -> P99811260 -> P55812339" shape=box];L20[label="P37087129 -> P92079226" shape=box];L21[label="P53728346" shape=box];L22[label="P78268251 -> P19536924" shape=box];L23[label="P78850705" shape=box];L24[label="" shape=box];L25[label="P87335448" shape=box];L26[label="" shape=box];L27[label="" shape=box];L28[label="P34862895" shape=box];L29[label="P98342965 -> P62859493 -> P86783923" shape=box];L30[label="" shape=box];L31[label="P85876068 -> P19485786" shape=box];L32[label="" shape=box];L33[label="" shape=box];L34[label="" shape=box];L35[label="" shape=box];L36[label="P50021062" shape=box];}

@@ -9,10 +9,12 @@ using namespace std;
 #include "./cabeceras/arbolBinario.h"
 #include "./cabeceras/listaCircularDoble.h"
 #include "./cabeceras/arbolB.h"
+#include "./cabeceras/TablaHash.h"
 
 arbolBinario aBinario;
 circularDoble cirDoble;
 BTree arbolB(3);
+TablaHash tHash(37);
 
 void cAviones(){
     cout<<"Carga de aviones"<<endl;
@@ -71,7 +73,7 @@ void cPilotos(){
         string tLicencia = item["tipo_de_licencia"];
 
         aBinario.insert(nombre,nacionalidad,nId,vuelo,hVuelo,tLicencia);
-
+        tHash.Insertar(nombre,nacionalidad,nId,vuelo,hVuelo,tLicencia);
         cout<<nId<<endl;
     }
 
@@ -86,6 +88,8 @@ void cPilotos(){
     cout<<"Posorder: "<<endl;
     aBinario.posOrder(aBinario.getRoot());
     cout<<endl;*/
+    tHash.imprimirTabla();
+    tHash.generaReporte("dot/tablaPilotos.dot");
     aBinario.generateDotFile("dot/horasVuelo.dot");
     return; 
 }
