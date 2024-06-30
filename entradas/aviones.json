@@ -1,182 +1,146 @@
 [
     {
-        "vuelo": "A101",
-        "numero_de_registro": "N10003",
+        "vuelo": "V700",
+        "numero_de_registro": "N70000",
         "modelo": "Boeing 737",
-        "capacidad": 253,
-        "aerolinea": "AirlineZ",
-        "ciudad_destino": "Paris",
-        "estado": "Mantenimiento"
-    },
-    {
-        "vuelo": "A108",
-        "numero_de_registro": "N10006",
-        "modelo": "Boeing 737",
-        "capacidad": 234,
-        "aerolinea": "AirlineY",
-        "ciudad_destino": "Paris",
-        "estado": "Mantenimiento"
-    },
-    {
-        "vuelo": "A116",
-        "numero_de_registro": "N10002",
-        "modelo": "Boeing 747",
-        "capacidad": 198,
-        "aerolinea": "AirlineY",
-        "ciudad_destino": "Madrid",
-        "estado": "Mantenimiento"
-    },
-    {
-        "vuelo": "A119",
-        "numero_de_registro": "N10014",
-        "modelo": "Boeing 737",
-        "capacidad": 106,
-        "aerolinea": "AirlineY",
-        "ciudad_destino": "Madrid",
-        "estado": "Disponible"
-    },
-    {
-        "vuelo": "A105",
-        "numero_de_registro": "N10012",
-        "modelo": "Airbus A330",
-        "capacidad": 211,
+        "capacidad": 180,
         "aerolinea": "AirlineX",
-        "ciudad_destino": "Caracas",
-        "estado": "Disponible"
-    },
-    {
-        "vuelo": "A115",
-        "numero_de_registro": "N10011",
-        "modelo": "Boeing 737",
-        "capacidad": 101,
-        "aerolinea": "AirlineY",
-        "ciudad_destino": "Madrid",
+        "ciudad_destino": "Girona",
         "estado": "Mantenimiento"
     },
     {
-        "vuelo": "A107",
-        "numero_de_registro": "N10003",
+        "vuelo": "V701",
+        "numero_de_registro": "N70001",
         "modelo": "Boeing 737",
-        "capacidad": 255,
-        "aerolinea": "AirlineZ",
-        "ciudad_destino": "Nueva York",
+        "capacidad": 180,
+        "aerolinea": "AirlineX",
+        "ciudad_destino": "Madrid",
         "estado": "Disponible"
     },
     {
-        "vuelo": "A106",
-        "numero_de_registro": "N10015",
+        "vuelo": "V702",
+        "numero_de_registro": "N70002",
         "modelo": "Airbus A320",
-        "capacidad": 204,
-        "aerolinea": "AirlineZ",
-        "ciudad_destino": "Nueva York",
-        "estado": "Mantenimiento"
-    },
-    {
-        "vuelo": "A117",
-        "numero_de_registro": "N10014",
-        "modelo": "Airbus A330",
-        "capacidad": 192,
-        "aerolinea": "AirlineZ",
-        "ciudad_destino": "Madrid",
-        "estado": "Mantenimiento"
-    },
-    {
-        "vuelo": "A108",
-        "numero_de_registro": "N10014",
-        "modelo": "Airbus A330",
-        "capacidad": 194,
-        "aerolinea": "AirlineX",
-        "ciudad_destino": "Caracas",
-        "estado": "Mantenimiento"
-    },
-    {
-        "vuelo": "A107",
-        "numero_de_registro": "N10017",
-        "modelo": "Airbus A330",
-        "capacidad": 104,
+        "capacidad": 150,
         "aerolinea": "AirlineY",
-        "ciudad_destino": "Londres",
+        "ciudad_destino": "Barcelona",
         "estado": "Disponible"
     },
     {
-        "vuelo": "A100",
-        "numero_de_registro": "N10009",
+        "vuelo": "V703",
+        "numero_de_registro": "N70003",
+        "modelo": "Boeing 787",
+        "capacidad": 242,
+        "aerolinea": "AirlineZ",
+        "ciudad_destino": "Barcelona",
+        "estado": "Disponible"
+    },
+    {
+        "vuelo": "V704",
+        "numero_de_registro": "N70004",
+        "modelo": "Boeing 777",
+        "capacidad": 396,
+        "aerolinea": "AirlineX",
+        "ciudad_destino": "Sevilla",
+        "estado": "Disponible"
+    },
+    {
+        "vuelo": "V705",
+        "numero_de_registro": "N70005",
+        "modelo": "Airbus A380",
+        "capacidad": 853,
+        "aerolinea": "AirlineW",
+        "ciudad_destino": "Sevilla",
+        "estado": "Disponible"
+    },
+    {
+        "vuelo": "V706",
+        "numero_de_registro": "N70006",
+        "modelo": "Airbus A380",
+        "capacidad": 853,
+        "aerolinea": "AirlineW",
+        "ciudad_destino": "Valencia",
+        "estado": "Disponible"
+    },
+    {
+        "vuelo": "V707",
+        "numero_de_registro": "N70007",
+        "modelo": "Boeing 737",
+        "capacidad": 180,
+        "aerolinea": "AirlineX",
+        "ciudad_destino": "Valencia",
+        "estado": "Disponible"
+    },
+    {
+        "vuelo": "V708",
+        "numero_de_registro": "N70008",
         "modelo": "Airbus A320",
-        "capacidad": 244,
+        "capacidad": 150,
         "aerolinea": "AirlineY",
-        "ciudad_destino": "Madrid",
+        "ciudad_destino": "Zaragoza",
         "estado": "Disponible"
     },
     {
-        "vuelo": "A119",
-        "numero_de_registro": "N10005",
-        "modelo": "Boeing 747",
-        "capacidad": 122,
+        "vuelo": "V709",
+        "numero_de_registro": "N70009",
+        "modelo": "Boeing 787",
+        "capacidad": 242,
         "aerolinea": "AirlineZ",
-        "ciudad_destino": "Nueva York",
+        "ciudad_destino": "Zaragoza",
         "estado": "Disponible"
     },
     {
-        "vuelo": "A100",
-        "numero_de_registro": "N10017",
-        "modelo": "Airbus A330",
-        "capacidad": 108,
-        "aerolinea": "AirlineZ",
-        "ciudad_destino": "Nueva York",
-        "estado": "Disponible"
-    },
-    {
-        "vuelo": "A110",
-        "numero_de_registro": "N10020",
-        "modelo": "Boeing 737",
-        "capacidad": 128,
+        "vuelo": "V710",
+        "numero_de_registro": "N70010",
+        "modelo": "Boeing 777",
+        "capacidad": 396,
         "aerolinea": "AirlineX",
-        "ciudad_destino": "Madrid",
+        "ciudad_destino": "Bilbao",
         "estado": "Disponible"
     },
     {
-        "vuelo": "A104",
-        "numero_de_registro": "N10004",
-        "modelo": "Embraer 190",
-        "capacidad": 227,
+        "vuelo": "V711",
+        "numero_de_registro": "N70011",
+        "modelo": "Airbus A380",
+        "capacidad": 853,
+        "aerolinea": "AirlineW",
+        "ciudad_destino": "Bilbao",
+        "estado": "Disponible"
+    },
+    {
+        "vuelo": "V712",
+        "numero_de_registro": "N70012",
+        "modelo": "Boeing 737",
+        "capacidad": 180,
+        "aerolinea": "AirlineX",
+        "ciudad_destino": "Granada",
+        "estado": "Disponible"
+    },
+    {
+        "vuelo": "V713",
+        "numero_de_registro": "N50013",
+        "modelo": "Airbus A320",
+        "capacidad": 150,
+        "aerolinea": "AirlineY",
+        "ciudad_destino": "Granada",
+        "estado": "Disponible"
+    },
+    {
+        "vuelo": "V714",
+        "numero_de_registro": "N70014",
+        "modelo": "Boeing 787",
+        "capacidad": 242,
         "aerolinea": "AirlineZ",
-        "ciudad_destino": "Nueva York",
+        "ciudad_destino": "Córdoba",
+        "estado": "Disponible"
+    },
+    {
+        "vuelo": "V715",
+        "numero_de_registro": "N70015",
+        "modelo": "Boeing 777",
+        "capacidad": 396,
+        "aerolinea": "AirlineX",
+        "ciudad_destino": "Murcia",
         "estado": "Mantenimiento"
-    },
-    {
-        "vuelo": "A101",
-        "numero_de_registro": "N10010",
-        "modelo": "Boeing 737",
-        "capacidad": 279,
-        "aerolinea": "AirlineY",
-        "ciudad_destino": "Madrid",
-        "estado": "Disponible"
-    },
-    {
-        "vuelo": "A103",
-        "numero_de_registro": "N10001",
-        "modelo": "Boeing 747",
-        "capacidad": 122,
-        "aerolinea": "AirlineX",
-        "ciudad_destino": "Paris",
-        "estado": "Disponible"
-    },
-    {
-        "vuelo": "A111",
-        "numero_de_registro": "N10008",
-        "modelo": "Embraer 190",
-        "capacidad": 130,
-        "aerolinea": "AirlineX",
-        "ciudad_destino": "Nueva York",
-        "estado": "Disponible"
-    },
-    {
-        "vuelo": "A109",
-        "numero_de_registro": "N10018",
-        "modelo": "Airbus A330",
-        "capacidad": 156,
-        "aerolinea": "AirlineZ",
-        "ciudad_destino": "Londres",
-        "estado": "Disponible"
     }
 ]

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
 #include "json.hpp"
 
 
@@ -10,14 +11,49 @@ using namespace std;
 #include "./cabeceras/listaCircularDoble.h"
 #include "./cabeceras/arbolB.h"
 #include "./cabeceras/TablaHash.h"
+#include "./cabeceras/GrafoDirigido.h"
 
 arbolBinario aBinario;
 circularDoble cirDoble;
 BTree arbolB(3);
-TablaHash tHash(37);
+TablaHash tHash(18);
+GrafoDirigido grafo(100);
+
+char** split(const string &str, char delimiter, int &numTokens) {
+    // Contar el número de tokens
+    numTokens = 1;
+    for (char ch : str) {
+        if (ch == delimiter) {
+            numTokens++;
+        }
+    }
+
+    // Reservar memoria para el arreglo de punteros
+    char** tokens = new char*[numTokens];
+    
+    size_t start = 0;
+    size_t end = str.find(delimiter);
+    int index = 0;
+
+    while (end != string::npos) {
+        string token = str.substr(start, end - start);
+        tokens[index] = new char[token.size() + 1]; // Reservar memoria para cada token
+        strcpy(tokens[index], token.c_str()); // Copiar el token al arreglo
+        index++;
+        start = end + 1;
+        end = str.find(delimiter, start);
+    }
+
+    // Copiar el último segmento
+    string token = str.substr(start);
+    tokens[index] = new char[token.size() + 1];
+    strcpy(tokens[index], token.c_str());
+
+    return tokens;
+}
 
 void cAviones(){
-    cout<<"Carga de aviones"<<endl;
+    cout<<"*******************Carga de aviones*******************"<<endl;
 
     ifstream inputFile("./entradas/aviones.json");
     if (!inputFile.is_open()) {
@@ -44,17 +80,16 @@ void cAviones(){
         }else{
             cout<<"El estado no es valido"<<endl;
         }
-
-       //cout<<aerolinea<<endl;
+        grafo.agregarVertice(ciudadDestino);
     }
-    //cirDoble.remove("N10003");
-    //cirDoble.generateDotFile("dot/avionesMantenimiento.dot");
-    arbolB.generateDotFile("dot/avionesDisponibles.dot");
+    
+    cout<<"Carga de Aviones realizada con exito"<<endl;
+    inputFile.close();
     return;
 }
 
 void cPilotos(){
-    cout<<"Carga de pilotos"<<endl;
+    cout<<"*******************Carga de pilotos*******************"<<endl;
     ifstream inputFile("./entradas/pilotos.json");
     if (!inputFile.is_open()) {
         cerr << "No se pudo abrir el archivo!" << endl;
@@ -74,48 +109,98 @@ void cPilotos(){
 
         aBinario.insert(nombre,nacionalidad,nId,vuelo,hVuelo,tLicencia);
         tHash.Insertar(nombre,nacionalidad,nId,vuelo,hVuelo,tLicencia);
-        cout<<nId<<endl;
+        //cout<<nId<<endl;
     }
-
-    /*cout<<"Preorder: "<<endl;
-    aBinario.preOrder(aBinario.getRoot());
-    cout<<endl;
-    cout<<endl;
-    cout<<"Inorder: "<<endl;
-    aBinario.inOrder(aBinario.getRoot());
-    cout<<endl;
-    cout<<endl;
-    cout<<"Posorder: "<<endl;
-    aBinario.posOrder(aBinario.getRoot());
-    cout<<endl;*/
-    tHash.imprimirTabla();
-    tHash.generaReporte("dot/tablaPilotos.dot");
-    aBinario.generateDotFile("dot/horasVuelo.dot");
+    
+    cout<<"Carga de Pilotos realizada con exito"<<endl;
+    inputFile.close();
     return; 
 }
 
 void cRutas(){
-    cout<<"Carga de rutas"<<endl;
+    cout<<"*******************Carga de rutas*******************"<<endl;
+    ifstream inputFile("./entradas/rutas.txt");
+    if (!inputFile.is_open()) {
+        cerr << "No se pudo abrir el archivo!" << endl;
+        return;
+    }
+
+    string linea;
+    while (getline(inputFile, linea)) { // Leer línea por línea
+        linea.pop_back();
+        int nt=0;
+        char** resultado = split(linea, '/', nt);
+        
+        cout<<resultado[0]<<endl;
+        int peso = atoi(resultado[2]);
+        grafo.agregarArista(resultado[0],resultado[1],peso);
+    }
+
+    inputFile.close();
+    cout<<"Carga de rutas realizada con exito"<<endl;
     return;
 }
 
 void cMovimientos(){
-    cout<<"Carga de movimientos"<<endl;
+    cout<<"*******************Carga de movimientos*******************"<<endl;
+
+    cout<<"Carga de movimientos realizada con exito"<<endl;
     return;
 }
 
 void consultaHVuelo(){
-    cout<<"Consulta horas de vuelo"<<endl;
+    int opcion;
+    cout<<"*******************Consulta horas de vuelo*******************"<<endl;
+    cout<<"Ingrese una opcion:"<<endl;
+    cout<<"1. Preorden"<<endl;
+    cout<<"2. Inorden"<<endl;
+    cout<<"3. Posorden"<<endl;
+    cin>>opcion;
+
+    switch (opcion)
+    {
+    case 1:
+        aBinario.preOrder(aBinario.getRoot());
+        break;
+    case 2:
+        aBinario.inOrder(aBinario.getRoot());
+        break;
+    case 3:
+        aBinario.posOrder(aBinario.getRoot());
+    default:
+        cout<<"Opcion invalida"<<endl;
+        break;
+    }
     return;
 }
 
 void recomendarRuta(){
-    cout<<"Recomendar ruta"<<endl;
+    string origen,destino;
+    cout<<"*******************Recomendar ruta*******************"<<endl;
+    cout<<"Ingrese el origen: ";
+    cin>>origen;
+    cout<<"\n Ingrese el destino: ";
+    cin>>destino;
+    grafo.mostrarRutaMasCorta(origen,destino);
     return;
 }
 
 void reportes(){
-    cout<<"Visualizar reportes"<<endl;
+    cout<<"*******************Visualizar reportes*******************"<<endl;
+    aBinario.generateDotFile("dot/horasVuelo.dot");
+    cout<<"Reporte horas de vuelo creado."<<endl;
+
+    tHash.generaReporte("dot/tablaPilotos.dot");
+    cout<<"Reporte tabla de pilotos creado."<<endl;
+
+    grafo.generarDot("dot/RutasDeVuelo.dot");
+    cout<<"Reporte rutas disponibles creado."<<endl;
+
+    cirDoble.generateDotFile("dot/avionesMantenimiento.dot");
+    cout<<"Reporte aviones en mantenimiento creado."<<endl;
+
+    arbolB.generateDotFile("dot/avionesDisponibles.dot");
+    cout<<"Reporte aviones disponibles creado."<<endl;
     return;
 }
 
@@ -171,12 +256,6 @@ void menu(){
 int main()
 {
     menu();
-    //bool r= "a"<"b";
-    //cout<<(bool)(1<2);
-    //string a= "A600";
-    //string b= "E500";
-    //cout<<(bool)("D100"<"B100");
-    //cout<<(bool)(b<a);
     return 0;
 }
 

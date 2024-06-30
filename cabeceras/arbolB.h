@@ -84,6 +84,7 @@ void BTree::generateDotFile(const string& filename) {
     file.close();
 
     system("dot -Tpng dot/avionesDisponibles.dot -o imagenes/avionesDisponibles.png");
+    system("start imagenes/avionesDisponibles.png");
 }
 
 void BTree::generateDotFile(ofstream &file, BTreeNode* node, int &nodeCount) {

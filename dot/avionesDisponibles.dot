@@ -1,11 +1,13 @@
 digraph G {
   label="Arbol de aviones disponibles";
   node [shape=record];
-    node0 [label="N10005|N10012"];
+    node0 [label="N70003|N70006|N70009"];
     node0 -> node1;
-    node1 [label="N10001|N10003"];
+    node1 [label="N50013|N70001|N70002"];
     node0 -> node2;
-    node2 [label="N10008|N10009|N10010"];
+    node2 [label="N70004|N70005"];
     node0 -> node3;
-    node3 [label="N10014|N10017|N10017|N10018|N10020"];
+    node3 [label="N70007|N70008"];
+    node0 -> node4;
+    node4 [label="N70010|N70011|N70012|N70014"];
 }

@@ -119,6 +119,6 @@ public:
         file.close();
 
         system("dot -Tpng dot/horasVuelo.dot -o imagenes/horasVuelo.png");
-        //system("start grafica_pasajeros.png");
+        system("start imagenes/horasVuelo.png");
     }
 };

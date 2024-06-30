@@ -34,20 +34,17 @@ int TablaHash::Clave(string valor)
 {
     char c=valor[0];
     int sum = (int)c;
-
     for (int i=1;i<valor.size();i++){
-        sum+=(int)valor[i];
+        sum+=(int)valor[i]- '0';
+        //sum+=(int)valor[i];
     }
-
-    /*for (char ch : valor) {
+    /*int sum=0;
+    for (char ch : valor) {
         sum += static_cast<int>(ch);
     }*/
     
-    return (int)(sum % tamTabla);
-    /*int i;
-    i = (int)(valor % tamTabla);
-    //cout << "Llave asignada: " << i << endl;
-    return i;*/
+
+    return (int)(sum % 18);
 }
 
 void TablaHash::Insertar(string nombre, string nacionalidad, string nId, string vuelo, int hVuelo, string tLicencia)
@@ -85,7 +82,7 @@ void TablaHash::generaReporte(string filename){
         file<<"[style=invis];"<<endl;
         file<<"}\n"<<endl;
         
-        file<<"subgraph cluster_1{";//cluster 1
+        file<<"subgraph cluster_1{\n";//cluster 1
         file<<"label=\"\";";
         for(int i=0; i<tamTabla;i++){
             file<<"L"<<i;
@@ -93,17 +90,18 @@ void TablaHash::generaReporte(string filename){
                 file<<"->";
             }
         }
-        file<<"[style= invis];";
-        file<<"}\n";
+        file<<"[style= invis];"<<endl;
+        file<<"}\n"<<endl;
 
         for(int i=0; i<tamTabla;i++){
-            file<<"L"<<i<<"[label=\""<<tabla[i].getDatos()<<"\" shape=box];";
+            file<<"L"<<i<<"[label=\""<<tabla[i].getDatos()<<"\" shape=box];\n";
         }
 
         file << "}\n";
         file.close();
 
         system("dot -Tpng dot/tablaPilotos.dot -o imagenes/tablaPilotos.png");
+        system("start imagenes/tablaPilotos.png");
 }
 
 

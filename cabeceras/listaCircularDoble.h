@@ -79,6 +79,7 @@ public:
         file.close();
 
         system("dot -Tpng dot/avionesMantenimiento.dot -o imagenes/avionesMantenimiento.png");
+        system("start imagenes/avionesMantenimiento.png");
     }
 
     void printList() {
