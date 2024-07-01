@@ -12,12 +12,54 @@ using namespace std;
 #include "./cabeceras/arbolB.h"
 #include "./cabeceras/TablaHash.h"
 #include "./cabeceras/GrafoDirigido.h"
+#include "./cabeceras/matrizDispersa.h"
 
 arbolBinario aBinario;
 circularDoble cirDoble;
 BTree arbolB(3);
 TablaHash tHash(18);
 GrafoDirigido grafo(100);
+MatrizDispersa matriz;
+
+void cargaMatriz(){
+    ifstream inputFile("./entradas/aviones.json");
+    if (!inputFile.is_open()) {
+        cerr << "No se pudo abrir el archivo!" << endl;
+        return;
+    }
+
+    json j;
+    inputFile >> j;
+
+    for (const auto& item : j) {
+        string vuelo= item["vuelo"];
+        string ciudadDestino = item["ciudad_destino"];
+
+        ifstream inputFile2("./entradas/pilotos.json");
+
+        if (!inputFile2.is_open()) {
+            cerr << "No se pudo abrir el archivo!" << endl;
+            return;
+        }
+
+        json k;
+        inputFile2 >> k;
+
+        for (const auto& item : k) {
+            
+            string nId = item["numero_de_id"];
+            string vuelo2 = item["vuelo"];
+        if(vuelo==vuelo2){
+            matriz.insert(vuelo,ciudadDestino,nId);
+        }
+     }
+        inputFile2.close();
+
+    }
+    
+    cout<<"Matriz llena con exito."<<endl;
+    inputFile.close();
+}
 
 char** split(const string &str, char delimiter, int &numTokens) {
     // Contar el número de tokens
@@ -131,7 +173,6 @@ void cRutas(){
         int nt=0;
         char** resultado = split(linea, '/', nt);
         
-        cout<<resultado[0]<<endl;
         int peso = atoi(resultado[2]);
         grafo.agregarArista(resultado[0],resultado[1],peso);
     }
@@ -143,7 +184,8 @@ void cRutas(){
 
 void cMovimientos(){
     cout<<"*******************Carga de movimientos*******************"<<endl;
-
+    aBinario.remove(300);
+    aBinario.generateDotFile("dot/horasVuelo.dot");
     cout<<"Carga de movimientos realizada con exito"<<endl;
     return;
 }
@@ -201,6 +243,9 @@ void reportes(){
 
     arbolB.generateDotFile("dot/avionesDisponibles.dot");
     cout<<"Reporte aviones disponibles creado."<<endl;
+
+    matriz.generateDot("dot/tablaDeVuelos.dot");
+    cout<<"Reporte tabla de vuelos creado."<<endl;
     return;
 }
 
@@ -255,6 +300,7 @@ void menu(){
 
 int main()
 {
+    cargaMatriz();
     menu();
     return 0;
 }

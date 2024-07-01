@@ -21,8 +21,8 @@ private:
     }
 
     Node* findMin(Node* node) {
-        while (node->left != nullptr) {
-            node = node->left;
+        while (node->right != nullptr) {
+            node = node->right;
         }
         return node;
     }
@@ -48,9 +48,9 @@ private:
             }
 
             // Nodo con dos hijos: obtener el sucesor en inorden (más pequeño en el subárbol derecho)
-            Node* temp = findMin(node->right);
+            Node* temp = findMin(node->left);
             node->hVuelo = temp->hVuelo;
-            node->right = remove(node->right, temp->hVuelo);
+            node->left = remove(node->left, temp->hVuelo);
         }
         return node;
     }

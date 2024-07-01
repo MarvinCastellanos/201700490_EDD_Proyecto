@@ -1,0 +1,38 @@
+digraph Matriz_dispersa {
+node[shape=box];
+label="Tabla de Vuelos";
+
+n0 [label="head" group=0];
+cV700[label="V700" group=V700];
+cMadrid[label="Madrid" group=Madrid];
+cBarcelona[label="Barcelona" group=Barcelona];
+cSevilla[label="Sevilla" group=Sevilla];
+cValencia[label="Valencia" group=Valencia];
+cZaragoza[label="Zaragoza" group=Zaragoza];
+cBilbao[label="Bilbao" group=Bilbao];
+cGranada[label="Granada" group=Granada];
+cCórdoba[label="Córdoba" group=Córdoba];
+cMurcia[label="Murcia" group=Murcia];
+
+rV700[label="V700" group=0];
+rV701[label="V701" group=0];
+rV702[label="V702" group=0];
+rV703[label="V703" group=0];
+rV704[label="V704" group=0];
+rV705[label="V705" group=0];
+rV706[label="V706" group=0];
+rV707[label="V707" group=0];
+rV708[label="V708" group=0];
+rV709[label="V709" group=0];
+rV710[label="V710" group=0];
+rV711[label="V711" group=0];
+rV712[label="V712" group=0];
+rV713[label="V713" group=0];
+rV714[label="V714" group=0];
+rV715[label="V715" group=0];
+
+nX07000123[label="X07000123" group=V700];
+
+nX06000123[label="X06000123" group=Madrid];
+
+nN70009[label="N70009" group=N70006];
