@@ -197,7 +197,7 @@ void cMovimientos(){
             // Encontrar la posición del número de avión
             size_t pos = linea.find_last_of(',') + 1;
             string avion = linea.substr(pos, linea.length() - pos - 1);
-            
+
             cirDoble.insert(avion);
             cout<<"Ingreso de "<<avion<<" a lista de mantenimiento"<<endl;
             arbolB.remove(avion);
@@ -225,7 +225,8 @@ void cMovimientos(){
                 cout<<"eliminado "<<piloto<<" de tabla Hash"<<endl;
                 aBinario.remove(eliminado->hVuelo);
                 cout<<"eliminado "<<piloto<<" de arbol binario"<<endl;
-                //matriz.remove(eliminado->vuelo,eliminado->getDato());
+                matriz.remove(eliminado->vuelo,eliminado->getDato());
+                cout<<"eliminado "<<piloto<<" de matriz dispersa"<<endl;
             }else{
                 cout<<"No se encontro el registro para "<<piloto<<endl;
             }

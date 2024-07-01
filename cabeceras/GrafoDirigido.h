@@ -33,7 +33,7 @@ public:
     void agregarVertice(string v) {
         if (buscarIndice(v) == -1) {
             if (numVertices == capacidad) {
-                cout << "Capacidad máxima alcanzada. No se puede agregar más vértices." << endl;
+                cout << "Capacidad maxima alcanzada. No se puede agregar mas vértices." << endl;
                 return;
             }
             vertices[numVertices] = v;
@@ -47,7 +47,7 @@ public:
         int v_idx = buscarIndice(v);
 
         if (u_idx == -1 || v_idx == -1) {
-            cout << "Uno o ambos vértices no existen." << endl;
+            cout << "Uno o ambos vertices no existen." << endl;
             return;
         }
 

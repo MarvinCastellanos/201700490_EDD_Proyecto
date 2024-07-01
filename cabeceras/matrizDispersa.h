@@ -33,6 +33,8 @@ private:
     HeadNode* getOrCreateColHead(const string& col);
     void removeFromRow(const string& row, const string& col);
     void removeFromCol(const string& row, const string& col);
+    void removeEmptyRow();
+    void removeEmptyCol();
     void appendHeadNode(HeadNode*& head, HeadNode* newNode);
     void appendDataNode(NodeMatriz*& head, NodeMatriz* newNode, bool isRow);
 
@@ -40,7 +42,7 @@ public:
     MatrizDispersa();
     ~MatrizDispersa();
     void insert(const string& row, const string& col, const string& value);
-    void remove(const std::string& row, const std::string& col);
+    void remove(const std::string& row, const std::string& val);
     //void display();
     void generateDot(const string& filename);
 };
@@ -117,7 +119,47 @@ void MatrizDispersa::insert(const string& row, const string& col, const string& 
     appendDataNode(colNode->node, newNode, false);
 }
 
-void MatrizDispersa::removeFromRow(const string& row, const string& col) {
+void MatrizDispersa::removeEmptyCol(){
+    HeadNode * rowNode = colHead;
+
+    while(rowNode){
+        if(!rowNode->node){
+            if(rowNode->next && rowNode->prev){
+                rowNode->prev->next=rowNode->next;
+                rowNode->next->prev=rowNode->prev;
+            }
+            if(rowNode==colHead){
+                colHead=colHead->next;
+            }
+            if(!rowNode->next){
+                rowNode->prev->next=nullptr;
+            }
+        }
+            rowNode=rowNode->next;
+    }
+}
+
+void MatrizDispersa::removeEmptyRow(){
+    HeadNode * rowNode = rowHead;
+
+    while(rowNode){
+        if(!rowNode->node){
+            if(rowNode->next && rowNode->prev){
+                rowNode->prev->next=rowNode->next;
+                rowNode->next->prev=rowNode->prev;
+            }
+            if(rowNode==rowHead){
+                rowHead=rowNode->next;
+            }
+            if(!rowNode->next){
+                rowNode->prev->next=nullptr;
+            }
+        }
+            rowNode=rowNode->next;
+    }
+}
+
+void MatrizDispersa::removeFromRow(const string& row, const string& val) {
     HeadNode* rowNode = rowHead;
     while (rowNode && rowNode->index != row) {
         rowNode = rowNode->next;
@@ -126,14 +168,15 @@ void MatrizDispersa::removeFromRow(const string& row, const string& col) {
     if (!rowNode) return;
 
     NodeMatriz* temp = rowNode->node;
-    if (temp->col == col) {
+    if (temp->value == val) {
         rowNode->node = temp->right;
         if (temp->right) temp->right->left = nullptr;
-        delete temp;
+        removeFromCol(temp->col,val);
+        //delete temp;
         return;
     }
 
-    while (temp->right && temp->right->col != col) {
+    while (temp->right && temp->right->value != val) {
         temp = temp->right;
     }
 
@@ -145,26 +188,23 @@ void MatrizDispersa::removeFromRow(const string& row, const string& col) {
     }
 }
 
-void MatrizDispersa::removeFromCol(const string& row, const string& col) {
+void MatrizDispersa::removeFromCol(const string& col, const string& val) {
     HeadNode* colNode = colHead;
     while (colNode && colNode->index != col) {
         colNode = colNode->next;
     }
 
     if (!colNode) return;
-
     NodeMatriz* temp = colNode->node;
-    if (temp->row == row) {
+    if (temp->value == val) {
         colNode->node = temp->down;
         if (temp->down) temp->down->up = nullptr;
         delete temp;
         return;
     }
-
-    while (temp->down && temp->down->row != row) {
+    while (temp->down && temp->down->value != val) {
         temp = temp->down;
     }
-
     if (temp->down) {
         NodeMatriz* toDelete = temp->down;
         temp->down = toDelete->down;
@@ -173,9 +213,10 @@ void MatrizDispersa::removeFromCol(const string& row, const string& col) {
     }
 }
 
-void MatrizDispersa::remove(const string& row, const string& col) {
-    removeFromRow(row, col);
-    removeFromCol(row, col);
+void MatrizDispersa::remove(const string& row, const string& val) {
+    removeFromRow(row, val);
+    removeEmptyRow();
+    removeEmptyCol();
 }
 
 /*void MatrizDispersa::display() {
