@@ -127,6 +127,8 @@ void cAviones(){
     
     cout<<"Carga de Aviones realizada con exito"<<endl;
     inputFile.close();
+
+    cargaMatriz();
     return;
 }
 
@@ -184,9 +186,55 @@ void cRutas(){
 
 void cMovimientos(){
     cout<<"*******************Carga de movimientos*******************"<<endl;
-    aBinario.remove(300);
-    aBinario.generateDotFile("dot/horasVuelo.dot");
-    cout<<"Carga de movimientos realizada con exito"<<endl;
+    ifstream inputFile("./entradas/movimientos.txt");
+    if (!inputFile.is_open()) {
+        cerr << "No se pudo abrir el archivo!" << endl;
+        return;
+    }
+    string linea;
+    while (getline(inputFile, linea)) {
+        if (linea.find("MantenimientoAviones,Ingreso,") != string::npos) {
+            // Encontrar la posición del número de avión
+            size_t pos = linea.find_last_of(',') + 1;
+            string avion = linea.substr(pos, linea.length() - pos - 1);
+            
+            cirDoble.insert(avion);
+            cout<<"Ingreso de "<<avion<<" a lista de mantenimiento"<<endl;
+            arbolB.remove(avion);
+            cout<<"Egreso de "<<avion<<" de arbol de disponibles"<<endl;
+
+        } else if (linea.find("MantenimientoAviones,Salida,") != string::npos) {
+            // Encontrar la posición del número de avión
+            size_t pos = linea.find_last_of(',') + 1;
+            string avion = linea.substr(pos, linea.length() - pos - 1);
+
+            arbolB.insert(avion);
+            cout<<"Ingreso de "<<avion<<" a arbol de disponibles"<<endl;
+            cirDoble.remove(avion);
+            cout<<"Egreso de "<<avion<<" de lista de mantenimiento"<<endl;
+
+        } else if (linea.find("DarDeBaja(") != string::npos) {
+            // Encontrar la posición del número de avión
+            size_t pos1 = linea.find('(') + 1;
+            size_t pos2 = linea.find(')');
+            string piloto = linea.substr(pos1, pos2 - pos1);
+
+            //cout<<piloto<<endl;
+            Nodo * eliminado = tHash.eliminar(piloto);
+            if(eliminado){
+                cout<<"eliminado "<<piloto<<" de tabla Hash"<<endl;
+                aBinario.remove(eliminado->hVuelo);
+                cout<<"eliminado "<<piloto<<" de arbol binario"<<endl;
+                //matriz.remove(eliminado->vuelo,eliminado->getDato());
+            }else{
+                cout<<"No se encontro el registro para "<<piloto<<endl;
+            }
+            
+        }
+    }
+
+    //cout<<"Carga de movimientos realizada con exito"<<endl;
+    inputFile.close();
     return;
 }
 
@@ -300,7 +348,7 @@ void menu(){
 
 int main()
 {
-    cargaMatriz();
+    //cargaMatriz();
     menu();
     return 0;
 }

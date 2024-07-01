@@ -13,6 +13,7 @@ public:
     void eliminarInicio();
     void eliminarFinal();
     void visualizarLista();
+    Nodo * eliminar(string nId);
     string getDatos();
     ~ListaSimple();
 };
@@ -27,6 +28,27 @@ bool ListaSimple::estaVacia()
     return (primero == nullptr) && (ultimo == nullptr);
 }
 
+Nodo * ListaSimple::eliminar(string nId){
+    Nodo * aux = primero;
+    if(primero->getDato()==nId){
+        primero = primero->getSiguiente();
+        primero->setAnterior(nullptr);
+        return aux;
+    }
+    while(aux){
+        if(aux->getSiguiente()->getDato()==nId){
+            Nodo *aux2 = aux->getSiguiente();
+
+            //aux2->getSiguiente()->setAnterior(aux);
+            aux->setSiguiente(aux2->getSiguiente());
+            aux2->setSiguiente(nullptr);
+            aux2->setAnterior(nullptr);
+            return aux2;
+        }
+        aux=aux->getSiguiente();
+    }
+    return nullptr;
+}
 
 void ListaSimple::insertarFinal(string nombre, string nacionalidad, string nId, string vuelo, int hVuelo, string tLicencia)
 {

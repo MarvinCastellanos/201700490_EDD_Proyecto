@@ -2,6 +2,7 @@
 #include <fstream>
 using namespace std;
 #include "ListaSimple.h"
+//#include "NodoLista.h"
 
 class TablaHash
 {
@@ -15,6 +16,7 @@ public:
     int Clave(string valor);
     void Insertar(string nombre, string nacionalidad, string nId, string vuelo, int hVuelo, string tLicencia);
     void imprimirTabla();
+    Nodo * eliminar(string nId);
     void generaReporte(string filename);
     ~TablaHash();
 };
@@ -36,15 +38,15 @@ int TablaHash::Clave(string valor)
     int sum = (int)c;
     for (int i=1;i<valor.size();i++){
         sum+=(int)valor[i]- '0';
-        //sum+=(int)valor[i];
     }
-    /*int sum=0;
-    for (char ch : valor) {
-        sum += static_cast<int>(ch);
-    }*/
-    
 
     return (int)(sum % 18);
+}
+
+Nodo * TablaHash::eliminar(string nId){
+    int indice= Clave(nId);
+    Nodo * eliminado= tabla[indice].eliminar(nId);
+    return eliminado;
 }
 
 void TablaHash::Insertar(string nombre, string nacionalidad, string nId, string vuelo, int hVuelo, string tLicencia)

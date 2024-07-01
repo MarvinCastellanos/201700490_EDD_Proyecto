@@ -35,4 +35,79 @@ nX07000123[label="X07000123" group=V700];
 
 nX06000123[label="X06000123" group=Madrid];
 
-nN70009[label="N70009" group=N70006];
+nX05000123[label="X05000123" group=Barcelona];
+nX04000123[label="X04000123" group=Barcelona];
+
+nX03000123[label="X03000123" group=Sevilla];
+nX02000123[label="X02000123" group=Sevilla];
+
+nX01000123[label="X01000123" group=Valencia];
+nX90000123[label="X90000123" group=Valencia];
+
+nX80000123[label="X80000123" group=Zaragoza];
+nX70000123[label="X70000123" group=Zaragoza];
+
+nX60000123[label="X60000123" group=Bilbao];
+nX50000123[label="X50000123" group=Bilbao];
+
+nX40000123[label="X40000123" group=Granada];
+nX30000123[label="X30000123" group=Granada];
+
+nX20000123[label="X20000123" group=Córdoba];
+
+nX10000123[label="X10000123" group=Murcia];
+
+
+n0->cV700->cMadrid->cBarcelona->cSevilla->cValencia->cZaragoza->cBilbao->cGranada->cCórdoba->cMurcia;
+
+rV700->nX07000123;
+rV701->nX06000123;
+rV702->nX05000123;
+rV703->nX04000123;
+rV704->nX03000123;
+rV705->nX02000123;
+rV706->nX01000123;
+rV707->nX90000123;
+rV708->nX80000123;
+rV709->nX70000123;
+rV710->nX60000123;
+rV711->nX50000123;
+rV712->nX40000123;
+rV713->nX30000123;
+rV714->nX20000123;
+rV715->nX10000123;
+
+
+n0->rV700->rV701->rV702->rV703->rV704->rV705->rV706->rV707->rV708->rV709->rV710->rV711->rV712->rV713->rV714->rV715;
+
+cV700->nX07000123;
+cMadrid->nX06000123;
+cBarcelona->nX05000123->nX04000123;
+cSevilla->nX03000123->nX02000123;
+cValencia->nX01000123->nX90000123;
+cZaragoza->nX80000123->nX70000123;
+cBilbao->nX60000123->nX50000123;
+cGranada->nX40000123->nX30000123;
+cCórdoba->nX20000123;
+cMurcia->nX10000123;
+
+{ rank=same;n0;cV700;cMadrid;cBarcelona;cSevilla;cValencia;cZaragoza;cBilbao;cGranada;cCórdoba;cMurcia;}
+
+{rank=same;rV700;nX07000123;}
+{rank=same;rV701;nX06000123;}
+{rank=same;rV702;nX05000123;}
+{rank=same;rV703;nX04000123;}
+{rank=same;rV704;nX03000123;}
+{rank=same;rV705;nX02000123;}
+{rank=same;rV706;nX01000123;}
+{rank=same;rV707;nX90000123;}
+{rank=same;rV708;nX80000123;}
+{rank=same;rV709;nX70000123;}
+{rank=same;rV710;nX60000123;}
+{rank=same;rV711;nX50000123;}
+{rank=same;rV712;nX40000123;}
+{rank=same;rV713;nX30000123;}
+{rank=same;rV714;nX20000123;}
+{rank=same;rV715;nX10000123;}
+
+}

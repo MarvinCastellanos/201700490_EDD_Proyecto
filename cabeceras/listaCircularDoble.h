@@ -10,6 +10,21 @@ private:
 public:
     circularDoble() : head(nullptr) {}
 
+    void insert(string nRegistro){
+        NodeCircular* newNode= new NodeCircular(nRegistro);
+        if (!head) {
+            head = newNode;
+            head->next = head;
+            head->prev = head;
+        } else {
+            NodeCircular* tail = head->prev;
+            tail->next = newNode;
+            newNode->prev = tail;
+            newNode->next = head;
+            head->prev = newNode;
+        }
+    }
+
     void insert(string vuelo,string nRegistro, string modelo, int capacidad, string aerolinea, string ciudadDestino, string estado) {
         NodeCircular* newNode = new NodeCircular(vuelo,nRegistro,modelo,capacidad,aerolinea,ciudadDestino,estado);
 

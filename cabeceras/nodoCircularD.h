@@ -13,5 +13,6 @@ struct NodeCircular {
 
     NodeCircular* next;
     NodeCircular* prev;
+    NodeCircular(string nRegistro):nRegistro(nRegistro){}
     NodeCircular(string vuelo,string nRegistro, string modelo, int capacidad, string aerolinea, string ciudadDestino, string estado) : capacidad(capacidad), vuelo(vuelo),nRegistro(nRegistro),modelo(modelo), aerolinea(aerolinea),ciudadDestino(ciudadDestino),estado(estado), next(nullptr), prev(nullptr) {}
 };
