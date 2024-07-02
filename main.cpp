@@ -251,13 +251,27 @@ void consultaHVuelo(){
     switch (opcion)
     {
     case 1:
+        cout<<"---------------------------------------------------------------"<<endl;
+        cout<<"PreOrden: "<<endl;
         aBinario.preOrder(aBinario.getRoot());
+        cout<<endl;
+        cout<<"---------------------------------------------------------------"<<endl;
         break;
     case 2:
+        cout<<"---------------------------------------------------------------"<<endl;
+        cout<<"InOrden: "<<endl;
         aBinario.inOrder(aBinario.getRoot());
+        cout<<endl;
+        cout<<"---------------------------------------------------------------"<<endl;
         break;
     case 3:
+        //cout<<"*******************Consulta horas de vuelo*******************"<<endl;
+        cout<<"---------------------------------------------------------------"<<endl;
+        cout<<"PosOrden: "<<endl;
         aBinario.posOrder(aBinario.getRoot());
+        cout<<endl;
+        cout<<"---------------------------------------------------------------"<<endl;
+        break;
     default:
         cout<<"Opcion invalida"<<endl;
         break;

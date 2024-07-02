@@ -97,7 +97,7 @@ public:
         system("start imagenes/avionesMantenimiento.png");
     }
 
-    void printList() {
+    /*void printList() {
         if (!head) return;
 
         NodeCircular* current = head;
@@ -106,5 +106,5 @@ public:
             current = current->next;
         } while (current != head);
         cout << endl;
-    }
+    }*/
 };
