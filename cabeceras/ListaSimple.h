@@ -32,14 +32,16 @@ Nodo * ListaSimple::eliminar(string nId){
     Nodo * aux = primero;
     if(primero->getDato()==nId){
         primero = primero->getSiguiente();
-        primero->setAnterior(nullptr);
+        //primero->setAnterior(nullptr);
         return aux;
     }
-    while(aux){
+    while(aux!=nullptr){
         if(aux->getSiguiente()->getDato()==nId){
+            
             Nodo *aux2 = aux->getSiguiente();
-
-            //aux2->getSiguiente()->setAnterior(aux);
+            /*if(aux2->getSiguiente()){
+                aux2->getSiguiente()->setAnterior(aux);
+            }*/
             aux->setSiguiente(aux2->getSiguiente());
             aux2->setSiguiente(nullptr);
             aux2->setAnterior(nullptr);

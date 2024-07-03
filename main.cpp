@@ -176,6 +176,8 @@ void cRutas(){
         char** resultado = split(linea, '/', nt);
         
         int peso = atoi(resultado[2]);
+        grafo.agregarVertice(resultado[0]);
+        grafo.agregarVertice(resultado[1]);
         grafo.agregarArista(resultado[0],resultado[1],peso);
     }
 
@@ -221,8 +223,9 @@ void cMovimientos(){
 
             //cout<<piloto<<endl;
             Nodo * eliminado = tHash.eliminar(piloto);
+            cout<<"eliminado "<<piloto<<" de tabla Hash"<<endl;
             if(eliminado){
-                cout<<"eliminado "<<piloto<<" de tabla Hash"<<endl;
+                
                 aBinario.remove(eliminado->hVuelo);
                 cout<<"eliminado "<<piloto<<" de arbol binario"<<endl;
                 matriz.remove(eliminado->vuelo,eliminado->getDato());

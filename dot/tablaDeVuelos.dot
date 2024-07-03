@@ -3,97 +3,112 @@ node[shape=box];
 label="Tabla de Vuelos";
 
 n0 [label="head" group=0];
-cMadrid[label="Madrid" group=Madrid];
 cBarcelona[label="Barcelona" group=Barcelona];
+cCuenca[label="Cuenca" group=Cuenca];
+cDonostia[label="Donostia" group=Donostia];
+cGirona[label="Girona" group=Girona];
+cHuesca[label="Huesca" group=Huesca];
+cLleida[label="Lleida" group=Lleida];
+cMadrid[label="Madrid" group=Madrid];
+cOviedo[label="Oviedo" group=Oviedo];
+cPamplona[label="Pamplona" group=Pamplona];
 cSevilla[label="Sevilla" group=Sevilla];
+cToledo[label="Toledo" group=Toledo];
 cValencia[label="Valencia" group=Valencia];
 cZaragoza[label="Zaragoza" group=Zaragoza];
-cBilbao[label="Bilbao" group=Bilbao];
-cGranada[label="Granada" group=Granada];
-cCórdoba[label="Córdoba" group=Córdoba];
 
-rV701[label="V701" group=0];
-rV702[label="V702" group=0];
-rV703[label="V703" group=0];
-rV704[label="V704" group=0];
-rV705[label="V705" group=0];
-rV706[label="V706" group=0];
-rV707[label="V707" group=0];
-rV708[label="V708" group=0];
-rV709[label="V709" group=0];
-rV710[label="V710" group=0];
-rV711[label="V711" group=0];
-rV712[label="V712" group=0];
-rV713[label="V713" group=0];
-rV714[label="V714" group=0];
+rX101[label="X101" group=0];
+rX102[label="X102" group=0];
+rX103[label="X103" group=0];
+rX104[label="X104" group=0];
+rX105[label="X105" group=0];
+rX106[label="X106" group=0];
+rX107[label="X107" group=0];
+rX109[label="X109" group=0];
+rX110[label="X110" group=0];
+rX111[label="X111" group=0];
+rX112[label="X112" group=0];
+rX113[label="X113" group=0];
+rX114[label="X114" group=0];
+rX116[label="X116" group=0];
 
-nX06000123[label="X06000123" group=Madrid];
+nX20000123[label="X20000123" group=Barcelona];
 
-nX05000123[label="X05000123" group=Barcelona];
-nX04000123[label="X04000123" group=Barcelona];
+nX30000123[label="X30000123" group=Cuenca];
 
-nX03000123[label="X03000123" group=Sevilla];
-nX02000123[label="X02000123" group=Sevilla];
+nX40000123[label="X40000123" group=Donostia];
 
-nX01000123[label="X01000123" group=Valencia];
-nX90000123[label="X90000123" group=Valencia];
+nX50000123[label="X50000123" group=Girona];
 
-nX80000123[label="X80000123" group=Zaragoza];
-nX70000123[label="X70000123" group=Zaragoza];
+nX60000123[label="X60000123" group=Huesca];
 
-nX60000123[label="X60000123" group=Bilbao];
-nX50000123[label="X50000123" group=Bilbao];
+nX70000123[label="X70000123" group=Lleida];
 
-nX40000123[label="X40000123" group=Granada];
-nX30000123[label="X30000123" group=Granada];
+nX80000123[label="X80000123" group=Madrid];
+nX01000123[label="X01000123" group=Madrid];
 
-nX20000123[label="X20000123" group=Córdoba];
+nX02000123[label="X02000123" group=Oviedo];
 
+nX03000123[label="X03000123" group=Pamplona];
 
-n0->cMadrid->cBarcelona->cSevilla->cValencia->cZaragoza->cBilbao->cGranada->cCórdoba;
+nX04000123[label="X04000123" group=Sevilla];
 
-rV701->nX06000123;
-rV702->nX05000123;
-rV703->nX04000123;
-rV704->nX03000123;
-rV705->nX02000123;
-rV706->nX01000123;
-rV707->nX90000123;
-rV708->nX80000123;
-rV709->nX70000123;
-rV710->nX60000123;
-rV711->nX50000123;
-rV712->nX40000123;
-rV713->nX30000123;
-rV714->nX20000123;
+nX05000123[label="X05000123" group=Toledo];
+
+nX06000123[label="X06000123" group=Valencia];
+
+nX07000123[label="X07000123" group=Zaragoza];
 
 
-n0->rV701->rV702->rV703->rV704->rV705->rV706->rV707->rV708->rV709->rV710->rV711->rV712->rV713->rV714;
+n0->cBarcelona->cCuenca->cDonostia->cGirona->cHuesca->cLleida->cMadrid->cOviedo->cPamplona->cSevilla->cToledo->cValencia->cZaragoza;
 
-cMadrid->nX06000123;
-cBarcelona->nX05000123->nX04000123;
-cSevilla->nX03000123->nX02000123;
-cValencia->nX01000123->nX90000123;
-cZaragoza->nX80000123->nX70000123;
-cBilbao->nX60000123->nX50000123;
-cGranada->nX40000123->nX30000123;
-cCórdoba->nX20000123;
+rX101->nX20000123;
+rX102->nX30000123;
+rX103->nX40000123;
+rX104->nX50000123;
+rX105->nX60000123;
+rX106->nX70000123;
+rX107->nX80000123;
+rX109->nX01000123;
+rX110->nX02000123;
+rX111->nX03000123;
+rX112->nX04000123;
+rX113->nX05000123;
+rX114->nX06000123;
+rX116->nX07000123;
 
-{ rank=same;n0;cMadrid;cBarcelona;cSevilla;cValencia;cZaragoza;cBilbao;cGranada;cCórdoba;}
 
-{rank=same;rV701;nX06000123;}
-{rank=same;rV702;nX05000123;}
-{rank=same;rV703;nX04000123;}
-{rank=same;rV704;nX03000123;}
-{rank=same;rV705;nX02000123;}
-{rank=same;rV706;nX01000123;}
-{rank=same;rV707;nX90000123;}
-{rank=same;rV708;nX80000123;}
-{rank=same;rV709;nX70000123;}
-{rank=same;rV710;nX60000123;}
-{rank=same;rV711;nX50000123;}
-{rank=same;rV712;nX40000123;}
-{rank=same;rV713;nX30000123;}
-{rank=same;rV714;nX20000123;}
+n0->rX101->rX102->rX103->rX104->rX105->rX106->rX107->rX109->rX110->rX111->rX112->rX113->rX114->rX116;
+
+cBarcelona->nX20000123;
+cCuenca->nX30000123;
+cDonostia->nX40000123;
+cGirona->nX50000123;
+cHuesca->nX60000123;
+cLleida->nX70000123;
+cMadrid->nX80000123->nX01000123;
+cOviedo->nX02000123;
+cPamplona->nX03000123;
+cSevilla->nX04000123;
+cToledo->nX05000123;
+cValencia->nX06000123;
+cZaragoza->nX07000123;
+
+{ rank=same;n0;cBarcelona;cCuenca;cDonostia;cGirona;cHuesca;cLleida;cMadrid;cOviedo;cPamplona;cSevilla;cToledo;cValencia;cZaragoza;}
+
+{rank=same;rX101;nX20000123;}
+{rank=same;rX102;nX30000123;}
+{rank=same;rX103;nX40000123;}
+{rank=same;rX104;nX50000123;}
+{rank=same;rX105;nX60000123;}
+{rank=same;rX106;nX70000123;}
+{rank=same;rX107;nX80000123;}
+{rank=same;rX109;nX01000123;}
+{rank=same;rX110;nX02000123;}
+{rank=same;rX111;nX03000123;}
+{rank=same;rX112;nX04000123;}
+{rank=same;rX113;nX05000123;}
+{rank=same;rX114;nX06000123;}
+{rank=same;rX116;nX07000123;}
 
 }
